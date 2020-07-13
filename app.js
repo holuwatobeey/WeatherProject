@@ -19,11 +19,8 @@ app.post('/', (req,res)=>{
             const WeatherData = JSON.parse(data);
             const desc = WeatherData.weather[0].description;
             const temp = WeatherData.main.temp;
-            const icon = WeatherData.weather[0].icon;
-            const imageUrl = "http://openweathermap.org/img/wn/" + icon + "@2x.png"
-            res.write('<p>The Weather in ' + query + ' is ' + temp + ' degree celsius</p>');
-            res.write('<p> ' + desc + '</p>');
-            res.write('<img src=' + imageUrl + '/>');
+            res.write('<h1>The temperature in ' + query + ' is ' + temp + ' degree celsius</h1>');
+            res.write('<i>The weather is currently ' + desc + '</i>');
             res.send()
         })
     })
